@@ -1,16 +1,28 @@
 package Labb_6_A1;
 
+import java.util.Hashtable;
+
 /**
- * Created by David on 10-Dec-16.
+ * Created by David on 14-Dec-16.
  */
-public class Frame {
-    public static void main(String[] args) {
+public class BagComponentRegistry {
+    private Hashtable<String, BagComponent> map = new Hashtable<>();
+
+    public BagComponentRegistry() {
+        setupRegistry();
+    }
+
+    public BagComponent createBagComponent(String type) {
+        return map.get(type).clone();
+    }
+
+    private void setupRegistry(){
         BagContainer resvaska = new BagContainer("resväska", 5);
         BagContainer neccessar = new BagContainer("neccessär", 0.3);
         BagContainer linsburk = new BagContainer("linsburk", 0.05);
         BagContainer datorvaska = new BagContainer("datorväska", 0.4);
         BagContainer pase = new BagContainer("påse", 0.01);
-        BagItem schampoo = new BagItem("schampoo", 0.35);
+        BagItem schampoflaska = new BagItem("schampoflaska", 0.35);
         BagItem linser = new BagItem("lins", 0.003);
         BagItem skjorta = new BagItem("skjorta", 0.2);
         BagItem dator = new BagItem("dator", 4);
@@ -24,7 +36,7 @@ public class Frame {
         resvaska.add(bowlingklot);
 
         neccessar.add(pase);
-        neccessar.add(schampoo);
+        neccessar.add(schampoflaska);
 
         pase.add(linsburk);
         linsburk.add(linser);
@@ -33,7 +45,19 @@ public class Frame {
         datorvaska.add(penna);
         datorvaska.add(suddigum);
 
-        System.out.println(resvaska);
-        System.out.println(resvaska.getWeight());
+        map.put("resväska", resvaska);
+        map.put("neccessär", neccessar);
+        map.put("linsburk", linsburk);
+        map.put("datorväska", datorvaska);
+        map.put("påse", pase);
+        map.put("schampoflaska", schampoflaska);
+        map.put("linser", linser);
+        map.put("skjorta", skjorta);
+        map.put("dator", dator);
+        map.put("bowlingklot", bowlingklot);
+        map.put("penna", penna);
+        map.put("suddigum", suddigum);
+
     }
+
 }

@@ -12,9 +12,22 @@ public class BagContainer extends BagComponent{
     private List<BagComponent> childList;
 
     public BagContainer(String name, double weight) {
+        super(name, weight);
         this.name = name;
         this.weight = weight;
         childList = new ArrayList<>();
+    }
+
+    public BagContainer clone() {
+        BagContainer clonedItem;
+        clonedItem = (BagContainer) super.clone();
+        clonedItem.childList = new ArrayList<>();
+        if (!childList.isEmpty()) {
+            for (BagComponent child : childList) {
+                clonedItem.add(child.clone());
+            }
+        }
+        return clonedItem;
     }
 
     public String toString() {
@@ -50,6 +63,10 @@ public class BagContainer extends BagComponent{
         return childList.get(index);
     }
 
+    public int getChildCount() {
+        return childList.size();
+    }
+
     public void add(BagComponent child){
         childList.add(child);
     }
@@ -57,4 +74,5 @@ public class BagContainer extends BagComponent{
     public void remove(BagComponent component) {
         childList.remove(component);
     }
+
 }

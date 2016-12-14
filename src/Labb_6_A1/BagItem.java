@@ -10,4 +10,5 @@ public class BagItem extends BagComponent{
     public BagItem(String name, double weight) {
         super(name, weight);
     }
+
 }
