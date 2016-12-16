@@ -16,6 +16,10 @@ public class BagComponentRegistry {
         return map.get(type).clone();
     }
 
+    public BagComponent getReferenceComponent(String type) {
+        return map.get(type);
+    }
+
     private void setupRegistry(){
         BagContainer resvaska = new BagContainer("resväska", 5);
         BagContainer neccessar = new BagContainer("neccessär", 0.3);

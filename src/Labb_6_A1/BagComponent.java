@@ -21,21 +21,21 @@ public abstract class BagComponent implements Iterable<BagComponent>, Cloneable{
         BagComponent clonedItem;
         try {
             clonedItem = (BagComponent) super.clone();
-            clonedItem.name = name;
-            clonedItem.weight = weight;
+            //clonedItem.name = name;
+            //clonedItem.weight = weight;
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException();
         }
         return clonedItem;
     }
 
-    /*public DepthIterator iterator() {
+    public DepthIterator iterator() {
         return new DepthIterator(this);
-    }*/
-
-    public WidthIterator iterator() {
-        return new WidthIterator(this);
     }
+
+    /*public WidthIterator iterator() {
+        return new WidthIterator(this);
+    }*/
 
     public String toString() {
         return "en " + name;

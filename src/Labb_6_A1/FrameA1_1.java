@@ -44,10 +44,18 @@ public class FrameA1_1 {
 
         BagComponentRegistry registry = new BagComponentRegistry();
         BagContainer resvaska2 = (BagContainer)registry.createBagComponent("resväska");
+        BagContainer resvaska3 = (BagContainer)registry.createBagComponent("resväska");
+        BagContainer refResvaska = (BagContainer)registry.getReferenceComponent("resväska");
+
         System.out.println(resvaska2);
-        System.out.println(resvaska == resvaska2);
+        System.out.println(refResvaska == resvaska2);
         System.out.println(resvaska2.getChild(0));
-        System.out.println(resvaska2.getChild(0) == resvaska.getChild(0));
+        System.out.println(resvaska2.getChild(0) == refResvaska.getChild(0));
+        System.out.println(resvaska2.getChild(0).getChild(0) == refResvaska.getChild(0).getChild(0));
+
+        System.out.println();
+        System.out.println(resvaska3 == resvaska2);
+
 
     }
 }
